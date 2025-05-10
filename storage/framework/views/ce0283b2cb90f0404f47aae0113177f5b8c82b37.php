@@ -6,9 +6,9 @@
 
         <ul class="menu-nav ">
             <!------------------------------------ Dashboard  ---------------------------------------------------->
-            @can('dashboard')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('dashboard')): ?>
                 <li class="menu-item  menu-item-active" aria-haspopup="true" style="height: 40px;">
-                    <a href="{{ route('admin.dashboard') }}" class="menu-link ">
+                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="menu-link ">
                         <span class="svg-icon menu-icon">
                             <span class="svg-icon svg-icon-primary svg-icon-2x">
                                 <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Layout\Layout-grid.svg--><svg
@@ -25,17 +25,17 @@
                                 </svg><!--end::Svg Icon-->
                             </span>
                         </span>
-                        <span class="menu-text">{{ __('menu.dashboard') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.dashboard')); ?></span>
                     </a>
                 </li>
                 <li class="menu-section" style="margin-bottom: -10px"></li>
-            @endcan
+            <?php endif; ?>
 
 
             <li class="menu-item  menu-item-submenu
-                    @if (str_contains(url()->current(), 'settings') ||
+                    <?php if(str_contains(url()->current(), 'settings') ||
                             str_contains(url()->current(), '/notifications') ||
-                            str_contains(url()->current(), '/revenues')) menu-item-open @endif"
+                            str_contains(url()->current(), '/revenues')): ?> menu-item-open <?php endif; ?>"
                 aria-haspopup="true" data-menu-toggle="hover" style="margin-top: -25px">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -51,7 +51,7 @@
                                 </g>
                             </svg><!--end::Svg Icon--></span>
                     </span>
-                    <span class="menu-text">{{ __('menu.home') }}</span>
+                    <span class="menu-text"><?php echo e(__('menu.home')); ?></span>
                     <i class="menu-arrow"></i>
                     <span class="menu-label">
                     </span>
@@ -61,45 +61,45 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
 
-                        @can('settings')
-                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'settings')) menu-item-active @endif"
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('settings')): ?>
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'settings')): ?> menu-item-active <?php endif; ?>"
                                 aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ route('get.admin.settings') }}" class="menu-link menu-toggle">
+                                <a href="<?php echo e(route('get.admin.settings')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.settings') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.settings')); ?></span>
                                 </a>
                             </li>
-                        @endcan
+                        <?php endif; ?>
 
-                        @can('notifications')
-                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'notifications')) menu-item-active @endif"
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('notifications')): ?>
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'notifications')): ?> menu-item-active <?php endif; ?>"
                                 aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ route('admin.notifications') }}" class="menu-link menu-toggle">
+                                <a href="<?php echo e(route('admin.notifications')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.notifications') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.notifications')); ?></span>
                                 </a>
                             </li>
-                        @endcan
+                        <?php endif; ?>
 
-                        @can('revenues')
-                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'revenues')) menu-item-active @endif"
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('revenues')): ?>
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'revenues')): ?> menu-item-active <?php endif; ?>"
                                 aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ route('admin.revenues') }}" class="menu-link menu-toggle">
+                                <a href="<?php echo e(route('admin.revenues')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.revenues') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.revenues')); ?></span>
                                 </a>
                             </li>
-                        @endcan
+                        <?php endif; ?>
 
                     </ul>
                 </div>
             </li>
 
             <!------------------------------------ Roles  ---------------------------------------------------->
-            @can('roles')
-                <li class="menu-item  menu-item-submenu @if (str_contains(url()->current(), 'roles')) menu-item-open @endif"
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('roles')): ?>
+                <li class="menu-item  menu-item-submenu <?php if(str_contains(url()->current(), 'roles')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.roles') !!}" class="menu-link menu-toggle">
+                    <a href="<?php echo route('admin.roles'); ?>" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <span
                                 class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Lock-circle.svg--><svg
@@ -114,19 +114,20 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.permissions') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.permissions')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-success">
-                                {{ App\Models\Role::count() }}
+                                <?php echo e(App\Models\Role::count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
             <!------------------------------------ Users    ---------------------------------------------------->
-            @can('users')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('users')): ?>
                 <li class="menu-item  menu-item-submenu
-                 @if (str_contains(url()->current(), '/users')) menu-item-open @endif"
+                 <?php if(str_contains(url()->current(), '/users')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -145,7 +146,7 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.users') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.users')); ?></span>
                         <i class="menu-arrow"></i>
                         <span class="menu-label">
                         </span>
@@ -156,18 +157,19 @@
                         <ul class="menu-subnav">
                             <li class="menu-item  menu-item-parent" aria-haspopup="true">
                                 <span class="menu-link">
-                                    <span class="menu-text">{{ __('menu.users') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.users')); ?></span>
                                 </span>
                             </li>
 
-                            <li class="menu-item  menu-item-submenu @if (str_contains(url()->current(), 'users')) menu-item-active @endif"
+                            <li class="menu-item  menu-item-submenu <?php if(str_contains(url()->current(), 'users')): ?> menu-item-active <?php endif; ?>"
                                 aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ route('users') }}" class="menu-link menu-toggle">
+                                <a href="<?php echo e(route('users')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.users') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.users')); ?></span>
                                     <span class="menu-label">
                                         <span class="label label-rounded label-info">
-                                            {{ App\Models\Admin::withoutTrashed()->where('id', '!=', \auth('admin')->user()->id)->count() }}
+                                            <?php echo e(App\Models\Admin::withoutTrashed()->where('id', '!=', \auth('admin')->user()->id)->count()); ?>
+
                                         </span>
                                     </span>
                                 </a>
@@ -176,12 +178,12 @@
                         </ul>
                     </div>
                 </li>
-            @endcan
+            <?php endif; ?>
 
             <!------------------------------------ Landing Page    ---------------------------------------------------->
-            @can('landing-page')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('landing-page')): ?>
                 <li class="menu-item  menu-item-submenu
-                       @if (str_contains(url()->current(), 'landing-page')) menu-item-open @endif"
+                       <?php if(str_contains(url()->current(), 'landing-page')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -201,7 +203,7 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.landing_page') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.landing_page')); ?></span>
                         <i class="menu-arrow"></i>
                         <span class="menu-label">
                         </span>
@@ -210,14 +212,15 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            <li class="menu-item  menu-item-submenu @if (str_contains(url()->current(), 'sliders')) menu-item-active @endif"
+                            <li class="menu-item  menu-item-submenu <?php if(str_contains(url()->current(), 'sliders')): ?> menu-item-active <?php endif; ?>"
                                 aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{!! route('admin.sliders') !!}" class="menu-link menu-toggle">
+                                <a href="<?php echo route('admin.sliders'); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.sliders') }}</span>
+                                    <span class="menu-text"><?php echo e(__('menu.sliders')); ?></span>
                                     <span class="menu-label">
                                         <span class="label label-rounded label-info">
-                                            {{ App\Models\Slider::withoutTrashed()->count() }}
+                                            <?php echo e(App\Models\Slider::withoutTrashed()->count()); ?>
+
                                         </span>
                                     </span>
                                 </a>
@@ -227,14 +230,14 @@
                     </div>
 
                 </li>
-            @endcan
+            <?php endif; ?>
 
             <!------------------------------------ Articles  ---------------------------------------------------->
-            @can('articles')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('articles')): ?>
                 <li class="menu-item  menu-item-submenu
-              @if (str_contains(url()->current(), '/articles')) menu-item-open @endif"
+              <?php if(str_contains(url()->current(), '/articles')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.articles') !!}" class="menu-link menu-toggle">
+                    <a href="<?php echo route('admin.articles'); ?>" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <span
                                 class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-top-panel-4.svg--><svg
@@ -253,21 +256,22 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.articles') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.articles')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-light-warning">
-                                {{ App\Models\Article::withoutTrashed()->count() }}
+                                <?php echo e(App\Models\Article::withoutTrashed()->count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
             <!------------------------------------ videos  ---------------------------------------------------->
-            @can('videos')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('videos')): ?>
                 <li class="menu-item  menu-item-submenu
-                        @if (str_contains(url()->current(), '/videos')) menu-item-open @endif"
+                        <?php if(str_contains(url()->current(), '/videos')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{{ route('admin.videos') }}" class="menu-link menu-toggle">
+                    <a href="<?php echo e(route('admin.videos')); ?>" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <span
                                 class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-grid.svg--><svg
@@ -286,22 +290,23 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.videos') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.videos')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-primary">
-                                {{ App\Models\Video::withoutTrashed()->count() }}
+                                <?php echo e(App\Models\Video::withoutTrashed()->count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
             <!------------------------------------ photos  ---------------------------------------------------->
-            @can('photos')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('photos')): ?>
                 <li class="menu-item  menu-item-submenu
-                        @if (str_contains(url()->current(), '/photo-albums')) menu-item-open @endif"
+                        <?php if(str_contains(url()->current(), '/photo-albums')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{{ route('admin.photo.albums') }}" class="menu-link menu-toggle">
+                    <a href="<?php echo e(route('admin.photo.albums')); ?>" class="menu-link menu-toggle">
 
                         <span class="svg-icon menu-icon">
                             <span
@@ -321,23 +326,24 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.photo_albums') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.photo_albums')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-info">
-                                {{ App\Models\PhotoAlbum::withoutTrashed()->count() }}
+                                <?php echo e(App\Models\PhotoAlbum::withoutTrashed()->count()); ?>
+
 
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
             <!------------------------------------ services  ---------------------------------------------------->
-            @can('services')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('services')): ?>
                 <li class="menu-item  menu-item-submenu
-                                @if (str_contains(url()->current(), '/services')) menu-item-open @endif"
+                                <?php if(str_contains(url()->current(), '/services')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{{ route('admin.services') }}" class="menu-link menu-toggle">
+                    <a href="<?php echo e(route('admin.services')); ?>" class="menu-link menu-toggle">
 
                         <span class="svg-icon menu-icon">
                             <span
@@ -355,26 +361,27 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.services') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.services')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-warning">
-                                {{ App\Models\Service::withoutTrashed()->count() }}
+                                <?php echo e(App\Models\Service::withoutTrashed()->count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
 
 
 
 
             <!------------------------------------ testimonials  ---------------------------------------------------->
-            @can('testimonials')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('testimonials')): ?>
                 <li class="menu-item  menu-item-submenu
-                                          @if (str_contains(url()->current(), '/testimonials')) menu-item-open @endif"
+                                          <?php if(str_contains(url()->current(), '/testimonials')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{{ route('admin.testimonials') }}" class="menu-link menu-toggle">
+                    <a href="<?php echo e(route('admin.testimonials')); ?>" class="menu-link menu-toggle">
 
                         <span class="svg-icon menu-icon">
                             <span
@@ -393,22 +400,23 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.testimonials') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.testimonials')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-success">
-                                {{ App\Models\Testimonial::withoutTrashed()->count() }}
+                                <?php echo e(App\Models\Testimonial::withoutTrashed()->count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
             <!------------------------------------ faqs ---------------------------------------------------->
-            @can('faqs')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faqs')): ?>
                 <li class="menu-item  menu-item-submenu
-               @if (str_contains(url()->current(), '/faqs')) menu-item-open @endif"
+               <?php if(str_contains(url()->current(), '/faqs')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.faqs') !!}" class="menu-link menu-toggle">
+                    <a href="<?php echo route('admin.faqs'); ?>" class="menu-link menu-toggle">
 
                         <span class="svg-icon menu-icon">
                             <span
@@ -427,23 +435,24 @@
                                 </svg><!--end::Svg Icon--></span>
                         </span>
 
-                        <span class="menu-text">{{ __('menu.faqs') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.faqs')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-danger">
-                                {{ \App\Models\FAQ::withoutTrashed()->count() }}
+                                <?php echo e(\App\Models\FAQ::withoutTrashed()->count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
 
             <!------------------------------------ Support Center ---------------------------------------------------->
-            @can('support-center')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('support-center')): ?>
                 <li class="menu-item  menu-item-submenu
-                  @if (str_contains(url()->current(), '/support-center')) menu-item-open @endif"
+                  <?php if(str_contains(url()->current(), '/support-center')): ?> menu-item-open <?php endif; ?>"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.support.center') !!}" class="menu-link menu-toggle">
+                    <a href="<?php echo route('admin.support.center'); ?>" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <span
                                 class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Active-call.svg--><svg
@@ -460,15 +469,16 @@
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.support_center') }}</span>
+                        <span class="menu-text"><?php echo e(__('menu.support_center')); ?></span>
                         <span class="menu-label">
                             <span class="label label-rounded label-white">
-                                {{ App\Models\SupportCenter::count() }}
+                                <?php echo e(App\Models\SupportCenter::count()); ?>
+
                             </span>
                         </span>
                     </a>
                 </li>
-            @endcan
+            <?php endif; ?>
 
 
         </ul>
@@ -476,3 +486,4 @@
     </div>
     <!--end::Menu Container-->
 </div>
+<?php /**PATH C:\laragon\www\fitness\resources\views/admin/includes/menu.blade.php ENDPATH**/ ?>

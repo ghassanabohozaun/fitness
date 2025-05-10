@@ -25,7 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/';
     public const ADMIN = '/admin';
-    public const STUDENT = '/student';
 
 
     /**
@@ -50,7 +49,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
         $this->mapWebRoutes();
         $this->mapAdminRoutes();
-        $this->mapStudentRoutes();
 
     }
 
@@ -76,14 +74,6 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
-    protected function mapStudentRoutes()
-    {
-        Route::prefix(LaravelLocalization::setLocale() . '/student')
-            ->middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/student.php'));
-    }
-
 
     /**
      * Define the "api" routes for the application.

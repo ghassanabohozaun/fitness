@@ -38,7 +38,7 @@
         <div class=" container-fluid ">
 
             <!--begin::Counters-->
-            <div class="row">
+            {{-- <div class="row">
 
                 <!------------------------- start courses count ---------->
                 <div class="col-xl-2">
@@ -108,7 +108,7 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Student::withoutTrashed()->count() }}
+
                             </span>
                             <span class="font-weight-bold card_name_span">
                                 {{ __('dashboard.students_counter') }}
@@ -283,11 +283,11 @@
                 </div>
                 <!------------------------- end albums count ----------->
 
-            </div>
+            </div> --}}
             <!--end::Counters-->
 
             <!--begin::chart-->
-            <div class="card card-custom gutter-b">
+            {{-- <div class="card card-custom gutter-b">
 
                 <div class="card-body py-2" style="">
                     <div class="container-fluid">
@@ -318,7 +318,7 @@
                 </div>
 
                 <!--end::Body-->
-            </div>
+            </div> --}}
             <!--end::chart-->
 
 
@@ -326,7 +326,7 @@
             <div class="card card-custom gutter-b ">
 
                 <!--begin::Body-->
-                <div class="card-body py-2" style="">
+                {{-- <div class="card-body py-2" style="">
                     <div class="container-fluid">
                         <div class="row">
                             <!--begin::courses-->
@@ -442,7 +442,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!--end::Body-->
 
             </div>

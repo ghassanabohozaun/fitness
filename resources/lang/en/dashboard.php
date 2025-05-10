@@ -39,7 +39,7 @@ return [
     'welcome_message_details' => 'We welcome you to the site control panel, this panel provides you with complete control over the site .',
     'profile' => 'Profile',
     'sign_out' => 'Sign Out',
-    'copy_rights' => 'Bakka Academy',
+    'copy_rights' => 'Fitness Center',
 
     'return_to_dashboard' => 'Return To Dashboard',
     'page_not_found' => 'Page Not Found',
