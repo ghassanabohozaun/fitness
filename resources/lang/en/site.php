@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'Bakka Academy',
+    'home' => 'Fitness',
     'index' => 'Home',
     'ar' => 'ع',
     'en' => 'EN',

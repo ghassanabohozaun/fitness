@@ -19,6 +19,14 @@ Route::group(
 
         Route::get('/', [SiteController::class, 'index'])->name('index');
 
+
+        Route::get('/patient' , function(){
+            return view('student.index');
+
+        });
+
+
+
         //reload captcha
         Route::get('/reload-captcha', [SiteController::class, 'reloadCaptcha'])->name('reload.captcha');
 
