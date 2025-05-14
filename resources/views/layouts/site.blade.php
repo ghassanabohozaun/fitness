@@ -2,19 +2,20 @@
 <html @if (Lang() == 'ar') lang="ar" dir="rtl" @else lang="en" dir="ltr" @endif>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- title -->
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('metaTags')
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="{!! asset('site/assets/img/favicon.png') !!}">
+    <link rel="shortcut icon" type="image/png" href="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_icon) !!}">
     <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> --}}
     <!-- fontawesome -->
     <link rel="stylesheet" href="{!! asset('site/assets/css/all.min.css') !!}">
     <!-- bootstrap -->
@@ -38,16 +39,17 @@
 
 <body>
 
-    <!--PreLoader-->
+    <!--start preLoader-->
     <div class="loader">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
     </div>
-    <!--PreLoader Ends-->
+    <!--end preLoader-->
 
+    <!--content-->
     @yield('content')
-
+    <!--content -->
 
 
     <!-- jquery -->
