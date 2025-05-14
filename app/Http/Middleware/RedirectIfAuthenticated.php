@@ -21,8 +21,8 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             if ($guard == 'admin' ||$guard == 'admin/*' ) {
                 return redirect(RouteServiceProvider::ADMIN);
-            } elseif ($guard == 'student' ||$guard == 'student/*') {
-                return redirect(RouteServiceProvider::STUDENT);
+            } elseif ($guard == 'patient' ||$guard == 'patient/*') {
+                return redirect(RouteServiceProvider::Patient);
             } else {
                 return redirect(RouteServiceProvider::HOME);
             }

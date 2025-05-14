@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/';
     public const ADMIN = '/admin';
-
+    public const Patient = '/patient';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -45,11 +45,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-
         $this->mapApiRoutes();
         $this->mapWebRoutes();
         $this->mapAdminRoutes();
-
+        $this->mapPatientRoutes();
     }
 
     /**
@@ -61,10 +60,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::prefix(LaravelLocalization::setLocale())
-            ->middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
+        Route::prefix(LaravelLocalization::setLocale())->middleware('web')->namespace($this->namespace)->group(base_path('routes/web.php'));
     }
 
     protected function mapAdminRoutes()
@@ -75,6 +71,13 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/admin.php'));
     }
 
+    protected function mapPatientRoutes()
+    {
+        Route::prefix(LaravelLocalization::setLocale() . '/patient')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/patient.php'));
+    }
     /**
      * Define the "api" routes for the application.
      *
@@ -84,9 +87,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+        Route::prefix('api')->middleware('api')->namespace($this->namespace)->group(base_path('routes/api.php'));
     }
 }

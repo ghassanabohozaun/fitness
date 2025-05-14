@@ -14,8 +14,8 @@ class SettingsSeeder extends Seeder
     {
 
         Setting::create([
-            'site_name_ar' => 'أكاديمية بكا',
-            'site_name_en' => 'Bakka Academy',
+            'site_name_ar' => 'مركز لياقة بدنية',
+            'site_name_en' => 'Fitness Center',
             'site_lang_ar' => 'on',
             'site_lang_en' => 'on',
             'lang_front_button_status' => 'on',

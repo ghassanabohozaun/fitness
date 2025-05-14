@@ -1,10 +1,13 @@
 <?php
 
 return [
-
-    'sign_in'=>'تسجيل الدخول',
+    'sign_in' => 'تسجيل الدخول',
+    'sign_up' => 'تسجيل مستخدم جديد',
     'login' => 'تسجيل الدخول',
     'new_here' => 'جديد هنا ',
+    'dont_have_account' => 'هل لا تملك حساب لدينا ?',
+    'welcome_back' => 'اهلاً بعودتك',
+    'enter_your_email_and_password_to_sign_in' => 'الرجاء ادخال الإيميل وكلمة المرور لتسجيل الدخول',
     'create_account' => 'إنشاء حساب جديد',
     'forget_password' => 'نسيت كلمة المرور',
     'remember_me' => 'تذكرني',
@@ -13,35 +16,33 @@ return [
     'control_panel' => 'لوحة التحكم',
     'site_name' => ' اسم الموقع',
     'site_logo' => ' شعار الموقع',
-    'welcome'=>'مرحباً بك',
+    'welcome' => 'مرحباً بك',
+    'copyright'=>'حقوق النشر والطباعة ',
 
     'name' => 'الاسم',
     'email' => 'الايميل',
     'photo' => 'الصورة',
     'password' => 'كلمة المرور',
     'mobile' => 'رقم الموبايل',
-    'confirm_password'=>'تاكيد كلمة المرور',
-
+    'confirm_password' => 'تاكيد كلمة المرور',
 
     'enter_name' => 'ادخل الاسم',
     'enter_email' => 'ادخل الايميل',
     'enter_photo' => 'ادخل الصورة',
     'enter_password' => 'ادخل كلمة المرور',
     'enter_mobile' => 'ادخل رقم الموبايل',
-    'enter_confirm_password'=>'ادخل تاكيد كلمة المرور',
+    'enter_confirm_password' => 'ادخل تاكيد كلمة المرور',
 
-    'name_required'=>'الاسم مطلوب',
+    'name_required' => 'الاسم مطلوب',
     'email_required' => 'الايميل مطلوب',
     'email_email' => 'يجب ان تكون صيغة الايميل مثل admin@admin.com',
     'password_required' => 'كلمة المرور مطلوبة',
     'password_min' => 'يجب ان كلمة المرور اكبر من 6 حروف',
-    'same'=>'كلمة المرور غير متطابقة',
+    'same' => 'كلمة المرور غير متطابقة',
 
     'login_failed' => 'فشل عملية تسجيل الدخول',
-    'account_unavailable'=>'الحساب غير متوفر',
-    'account_disabled'=>'الحساب معطل',
+    'account_unavailable' => 'الحساب غير متوفر',
+    'account_disabled' => 'الحساب معطل',
 
-
-    'sign_in_to_teacher'=>' لوحة  تحكم المعلم'
-
+    'sign_in_to_teacher' => ' لوحة  تحكم المعلم',
 ];

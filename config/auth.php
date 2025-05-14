@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -46,6 +45,10 @@ return [
             'provider' => 'admin',
         ],
 
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patient',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -82,6 +85,10 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
+        'patient' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Patient::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -125,5 +132,4 @@ return [
     */
 
     'password_timeout' => 10800,
-
 ];

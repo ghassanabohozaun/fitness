@@ -20,10 +20,7 @@ Route::group(
         Route::get('/', [SiteController::class, 'index'])->name('index');
 
 
-        Route::get('/patient' , function(){
-            return view('student.index');
 
-        });
 
 
 

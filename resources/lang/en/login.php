@@ -1,14 +1,13 @@
 <?php
 
 return [
-
-    ////////////////////////////////////////////////////
-    /// Admin Login
-
-    'sign_in'=>'Sign In',
-
+    'sign_in' => 'Sign In',
+    'sign_up' => 'Sign Up',
     'login' => 'Login',
     'new_here' => ' New Here',
+    'welcome_back' => 'Welcome Back',
+    'enter_your_email_and_password_to_sign_in' => 'Enter your email and password to sign in',
+    'dont_have_account' => 'Don\'t have an account',
     'create_account' => 'Create Account',
     'forget_password' => 'Forget Password',
     'remember_me' => 'Remember Me',
@@ -17,30 +16,27 @@ return [
     'control_panel' => 'Control Panel',
     'site_name' => 'Site Name',
     'site_logo' => 'Site Logo',
-    'welcome'=>'Welcome',
-
+    'welcome' => 'Welcome',
+    'copyright' => 'Copyright',
 
     'name' => 'Name',
     'email' => 'Email',
     'photo' => 'Photo',
     'password' => 'Password',
     'mobile' => 'Mobile',
-    'confirm_password'=>'Confirm Password',
-
+    'confirm_password' => 'Confirm Password',
 
     'enter_name' => 'Enter Name',
     'enter_email' => 'Enter Email',
     'enter_photo' => 'Enter Photo',
     'enter_password' => 'Enter Password',
     'enter_mobile' => 'Enter Mobile',
-    'enter_confirm_password'=>'Enter Confirm Password',
-
+    'enter_confirm_password' => 'Enter Confirm Password',
 
     'required' => 'This Field Required',
     'abbr_max' => 'Max allow characters 10',
     'name_max' => 'Max allow characters 100',
     'in' => 'The entered value is not valid',
-
 
     'name_required' => 'Name Required',
     'email_required' => 'Email Required',
@@ -48,15 +44,8 @@ return [
     'password_required' => 'Password Required',
     'password_min' => 'Password Must be Grater than 6 characters',
     'login_failed' => 'Login Failed',
-    'same'=>'Password does not match',
+    'same' => 'Password does not match',
 
-    'account_unavailable'=>'Account Unavailable',
-    'account_disabled'=>'Account Disabled',
-
-
-
-    ////////////////////////////////////////////////////
-    /// Teacher Login
-    'sign_in_to_teacher'=>'  Teacher  CPanel'
-
+    'account_unavailable' => 'Account Unavailable',
+    'account_disabled' => 'Account Disabled',
 ];

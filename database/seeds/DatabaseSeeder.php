@@ -5,7 +5,6 @@ use Database\Seeders\CountrySeeder;
 use Database\Seeders\FaqSeeder;
 use Database\Seeders\PhotoAlbumSeeder;
 use Database\Seeders\RoleSeeder;
-use Database\Seeders\ServicesSeeder;
 use Database\Seeders\SlidersSeeder;
 use Database\Seeders\TestimonialsSeeder;
 use Database\Seeders\VideosSeeder;
@@ -30,10 +29,9 @@ class DatabaseSeeder extends Seeder
             VideosSeeder::class,
             PhotoAlbumSeeder::class,
             SlidersSeeder::class,
-            // MyNewsSeeder::class,
             TestimonialsSeeder::class,
-            ServicesSeeder::class,
             ArticlesSeeder::class,
+            PatientSeeder::class,
 
         ]);
     }

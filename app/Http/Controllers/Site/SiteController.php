@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SupportCenterRequest;
 use App\Models\Article;
-use App\Models\Course;
 use App\Models\FAQ;
 use App\Models\PhotoAlbum;
 use App\Models\Slider;
